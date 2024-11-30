@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Syllabus Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #ece8e0;
+    color: #333;
+}
+    /* Logout Page Styles */
+.logout-container {
+    max-width: 500px;
+    margin: 100px auto;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.logout-container h1 {
+    color: #33aaa6;
+    margin-bottom: 10px;
+}
+
+.logout-container p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logout-buttons .btn-confirm, .logout-buttons .btn-cancel {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    background-color: #33aaa6;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-buttons .btn-cancel {
+    background-color: #f44336;
+}
+
+.logout-buttons .btn-confirm:hover {
+    background-color: #d88ca3;
+}
+
+.logout-buttons .btn-cancel:hover {
+    background-color: #d32f2f;
+}
+nav ul{
+    text-align: center;
+    min-height: 50px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: #33aaa6;
+}
+nav ul li{
+    margin: 15px 15px;
+}
+nav ul li a{
+    
+    text-decoration: none;
+    color: white;
+    padding: 0 15px;
+    font-size: 16px;    
+}
+
+nav{
+    height: 10px;
+    color: #33aaa6;
+}
+footer{
+    font-size: 20px;
+    padding: 10px 0;
+    color: white;
+    height: 60px;
+    background-color: #33aaa6;
+    text-align: center;
+}
+.logout-container{
+    background-color: rgb(244, 241, 242);
+}
+
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="syllabus.html">Manage Syllabus</a></li>
+                <li><a href="my_profile.html">My Profile</a></li>
+                <li><a href="logout.html" class="active">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="logout-container">
+            <div class="logout">
+                <h1>Logout</h1>
+                <p>Are you sure you want to log out?</p>
+                <div class="logout-buttons">
+                    <form action="process_logout.php" method="POST">
+                        <button type="submit" class="btn-confirm">Yes, Logout</button>
+                    </form>
+                    <a href="dashboard.html" class="btn-cancel">Cancel</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Syllabus Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

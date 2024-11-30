@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Syllabus - Syllabus Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ece8e0;
+        }
+
+        .header {
+            background-color: #33aaa6;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: rgb(241, 241, 242);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"],
+        .search-bar select {
+            padding: 10px;
+            font-size: 16px;
+            width: 48%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #33aaa6;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #33aaa6;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            color: #d88ca3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Syllabus Management System</h2>
+</div>
+
+<div class="container">
+    <h1>View Syllabus</h1>
+
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search by course name or description" onkeyup="filterTable()">
+        <select id="filter" onchange="filterTable()">
+            <option value="">Filter by Course</option>
+            <option value="Course 1">Basic Mechanical Engineering</option>
+            <option value="Course 2">Fundamentals of Computer</option>
+            <option value="Course 3">Basic Electrical and Electronics Engineering</option>
+            <option value="Course 4">Engineering Chemistry</option>
+            <option value="Course 5">Environmental Studies</option>
+        </select>
+    </div>
+
+    <table id="syllabusTable">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>View File</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fundamentals of Computer</td>
+                <td>Functions</td>
+                <td><a href="functions.pdf" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Engineering Chemistry</td>
+                <td>Corrosion</td>
+                <td><a href="Chemistry  Unit 3  (Corrosion).pdf" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Basic Mechanical Engineering</td>
+                <td>Electric Vehicle</td>
+                <td><a href="Electric Vehicle.pdf" target="_blank">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="back-link">
+        <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+</div>
+
+<script>
+    function filterTable() {
+        const searchInput = document.getElementById("search").value.toLowerCase();
+        const filterSelect = document.getElementById("filter").value.toLowerCase();
+        const table = document.getElementById("syllabusTable");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const courseName = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
+            const description = rows[i].getElementsByTagName("td")[1].textContent.toLowerCase();
+            const showRow =
+                (searchInput === "" || courseName.includes(searchInput) || description.includes(searchInput)) &&
+                (filterSelect === "" || courseName === filterSelect);
+
+            rows[i].style.display = showRow ? "" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>
